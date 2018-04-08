@@ -5,6 +5,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/modules/shared.module';
+import { AbonentFormComponent } from './abonent-form/abonent-form.component';
+import { AbonentFormModule } from './abonent-form/abonent-form.module';
+import { CommonModule } from '@angular/common';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -12,10 +16,13 @@ import { SharedModule } from './shared/modules/shared.module';
     AppComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule.forRoot(),
-    FormsModule
+    FormsModule,
+    AbonentFormModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

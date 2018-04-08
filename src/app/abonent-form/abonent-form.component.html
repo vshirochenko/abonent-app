@@ -1,0 +1,20 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Фамилия" [value]="abonent.surname">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Тип документа">
+      <mat-option *ngFor="let docType of docTypes" [value]="docType.value">
+        {{ docType.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Дата выдачи" [value]="abonent.issueDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</form>
+
