@@ -1,9 +1,24 @@
-.example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
+@import '~variables.scss';
+
+mat-form-field {
+  width: 250px;
+}
+
+.form-title {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: $font-family;
+  padding: 0 0 4*$padding $padding;
+}
+
+.mat-form-field {
+  padding: 0 $padding;
+}
+
+.readonly-field {
+  opacity: 0.5;
+}
+
+.buttons-panel {
+  margin-top: 20px;
+}

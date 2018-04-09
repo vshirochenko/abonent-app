@@ -1,20 +1,57 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Фамилия" [value]="abonent.surname">
-  </mat-form-field>
+<mat-spinner *ngIf="!abonentLoaded"></mat-spinner>
+<div [hidden]="!abonentLoaded">
+  <div class="form-title">Редактирование данных абонента</div>
+  <form>
+    <div class="row">
+      <mat-form-field class="readonly-field">
+        <input matInput placeholder="Фамилия" [value]="abonent?.surname" [disabled]="true">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Фамилия" [value]="abonent?.surname">
+      </mat-form-field>
+    </div>
 
-  <mat-form-field>
-    <mat-select placeholder="Тип документа">
-      <mat-option *ngFor="let docType of docTypes" [value]="docType.value">
-        {{ docType.viewValue }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <div class="row">
+      <mat-form-field class="readonly-field">
+        <mat-select placeholder="Тип документа" [value]="abonent?.docType?.value" [disabled]="true">
+          <mat-option [value]="abonent?.docType?.value">
+            {{ abonent?.docType?.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Тип документа">
+          <mat-option *ngFor="let docType of docTypes" [value]="docType?.value">
+            {{ docType?.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
-  <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Дата выдачи" [value]="abonent.issueDate">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-</form>
+    <div class="row">
+      <mat-form-field class="readonly-field">
+        <input matInput [matDatepicker]="readonly-picker" placeholder="Дата выдачи" [value]="abonent?.issueDate" [disabled]="true">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="edit-picker" placeholder="Дата выдачи" [value]="abonent?.issueDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
 
+    <div class="row">
+      <mat-form-field class="readonly-field">
+        <input matInput placeholder="Код подразделения" [value]="abonent?.departmentCode" [disabled]="true">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Код подразделения" [value]="abonent?.departmentCode">
+      </mat-form-field>
+    </div>
+    <div class="row buttons-panel">
+      <button mat-button        type="button" color="primary" class="break-scenario" (click)="showBreakScenarioWindow()">Прервать сценарий</button>
+      <button mat-raised-button type="button" color="primary" class="add-to-basket"  (click)="addToBasket()">Добавить в корзину</button>
+    </div>
+  </form>
+</div>

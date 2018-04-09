@@ -9,11 +9,18 @@ import { AbonentFormComponent } from './abonent-form/abonent-form.component';
 import { AbonentFormModule } from './abonent-form/abonent-form.module';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
-
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './shared/services/in-memory-test-data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AlertComponent } from './shared/components/alert.component';
+import { MatDialog } from '@angular/material';
+import { BasketComponent } from './basket/basket.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AlertComponent,
+    BasketComponent
   ],
   imports: [
     CommonModule,
@@ -22,9 +29,14 @@ import { AppRoutingModule } from './app-routing.module';
     SharedModule.forRoot(),
     FormsModule,
     AbonentFormModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false, delay: 1000 })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AlertComponent
+  ]
 })
 export class AppModule { }
