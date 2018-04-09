@@ -3,7 +3,8 @@ import {
   Abonent,
   DocType,
   AbonentsService,
-  DataConstants
+  DataConstants,
+  cloneAbonent
 } from '../core';
 import { MatDialog } from '@angular/material';
 import { AlertComponent } from '../shared/components/alert.component';
@@ -24,6 +25,7 @@ export class AbonentFormComponent implements OnInit {
 
   abonentLoaded: boolean;
   abonent: Abonent;
+  copy: Abonent;
 
   constructor(
     abonentsService: AbonentsService,
@@ -42,6 +44,7 @@ export class AbonentFormComponent implements OnInit {
 
     this._abonentsService.query('1').subscribe(data => {
       this.abonent = data;
+      this.copy = cloneAbonent(this.abonent);
       this.abonentLoaded = true;
     }, err => {
       console.log(err);
@@ -58,5 +61,9 @@ export class AbonentFormComponent implements OnInit {
 
   addToBasket() {
     this._router.navigate(['/basket']);
+  }
+
+  copySurname() {
+    this.abonent.surname = this.copy.surname;
   }
 }
