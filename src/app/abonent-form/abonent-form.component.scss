@@ -1,18 +1,21 @@
 @import '~variables.scss';
 
 mat-form-field {
-  width: 250px;
+  width: 400px;
+  margin: 30px 30px 0 0;
 }
 
 .form-title {
   font-size: 20px;
   font-weight: bold;
   font-family: $font-family;
-  padding: 0 0 4*$padding $padding;
+  padding: 0 0 $padding 0;
 }
 
-.mat-form-field {
-  padding: 0 $padding;
+.field-type {
+  font-size: 16px;
+  font-family: $font-family;
+  margin: 0 0 $padding 0;
 }
 
 .readonly-field {
@@ -21,4 +24,13 @@ mat-form-field {
 
 .buttons-panel {
   margin-top: 20px;
+}
+
+@media only screen and (max-device-width: 836px) {
+
+  mat-form-field {
+    width: 140px;
+    margin: 20px 20px 0 0;
+    font-size: 12px;
+  }
 }

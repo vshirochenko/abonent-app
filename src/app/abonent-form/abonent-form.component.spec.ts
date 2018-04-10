@@ -14,6 +14,7 @@ import { MatDialog, MatDialogContent, MatDialogModule } from '@angular/material'
 import { AlertComponent } from '../shared/components/alert.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const ABONENT_OBJ = new Abonent();
 
@@ -46,7 +47,9 @@ describe('AbonentFormComponent', () => {
       ],
       imports: [
         SharedModule,
-        RouterTestingModule
+        RouterTestingModule,
+        FormsModule,
+        ReactiveFormsModule
       ]
     })
       .compileComponents().then(() => {
@@ -96,7 +99,6 @@ describe('AbonentFormComponent', () => {
 
   it('should navigate to basket page after adding to basket', async () => {
     // Arrange
-    debugger;
     const r = fixture.debugElement.injector.get(Router);
     component = new AbonentFormComponent(_abonentsServiceMock, null, r);
 

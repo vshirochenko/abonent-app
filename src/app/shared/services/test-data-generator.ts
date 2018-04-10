@@ -18,7 +18,7 @@ export function generateAbonents(count: number): Abonent[] {
         abonent.docType = getRandomDocType();
         abonent.issueCountry = getRandomString(7);
         abonent.issueDate = getRandomDateTime(DataConstants.MIN_ISSUE_DATE, new Date());
-        abonent.departmentCode = getRandomLongNumber(7);
+        abonent.departmentCode = getRandomLongNumber(6);
         abonents.push(abonent);
     }
     return abonents;

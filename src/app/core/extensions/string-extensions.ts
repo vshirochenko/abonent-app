@@ -1,7 +1,7 @@
 export function getRandomString(charsNumber: number): string {
     charsNumber = Math.max(charsNumber, 0);
     let text = '';
-    const chars = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
+    const chars = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
     for (let i = 0; i < charsNumber; i++) {
         text += chars.charAt(Math.floor(Math.random() * chars.length));
     }

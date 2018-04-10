@@ -4,14 +4,15 @@ import { SharedModule } from '../shared/modules/shared.module';
 import { CommonModule } from '@angular/common';
 import { AbonentFormRoutingModule } from './abonent-form.routing';
 import { AlertComponent } from '../shared/components/alert.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
     AbonentFormRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AbonentFormComponent
